@@ -35,7 +35,7 @@ public class GestionPersonnel implements Serializable
 	{
 		if (gestionPersonnel == null)
 		{
-			gestionPersonnel = passerelle.getGestionPersonnel();
+			gestionPersonnel = passerelle.getGestionPersonnel(); 
 			if (gestionPersonnel == null)
 				gestionPersonnel = new GestionPersonnel();
 		}

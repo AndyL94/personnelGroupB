@@ -131,7 +131,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	}
 	
 	/**
-	 * Supprime la ligue, entraîne la suppression de tous les employés
+	 * Supprime la ligue, entraîne la suppression de tous les employés 
 	 * de la ligue.
 	 */
 	
