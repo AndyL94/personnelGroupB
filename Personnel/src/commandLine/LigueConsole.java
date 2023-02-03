@@ -100,13 +100,15 @@ public class LigueConsole
 		return new Option("ajouter un employé", "a",
 				() -> 
 				{
+					String nom, prenom, mail, password;
 					LocalDate Arrivee = null, Depart = null;
-					ligue.addEmploye(getString("nom : "), 
-						getString("prenom : "),
-						getString("mail : "), 
-						getString("password : "),
-						Arrivee = parseDate("Date d'arrivée YYYY-MM-JJ : "),
-                        Depart = parseDate("Date de départ YYYY-MM-JJ : "));
+						nom = getString("nom : ");
+						prenom = getString("prenom : ");
+						mail = getString("mail : ");
+						password = getString("password : ");
+						Arrivee = parseDate("Date d'arrivée YYYY-MM-DD : ");
+                        Depart = parseDate("Date de départ YYYY-MM-DD : ");
+                        ligue.addEmploye(nom, prenom, mail, password, Arrivee, Depart);
 				}
 		);
 	}
