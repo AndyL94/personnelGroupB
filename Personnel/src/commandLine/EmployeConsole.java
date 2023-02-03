@@ -57,7 +57,7 @@ public class EmployeConsole
 	
 	private Option supprimerEmploye(final Employe employe)
 	{
-		return new Option("Supprimer l'employe", "z", () -> {employe.remove();});
+		return new Option("Supprimer l'employe", "d", () -> {employe.remove();});
 	
 	}
 
