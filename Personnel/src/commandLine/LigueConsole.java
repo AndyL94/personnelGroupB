@@ -144,6 +144,7 @@ public class LigueConsole
                 () -> new ArrayList<>(ligue.getEmployes()),
                 (index, element) -> {ligue.setAdministrateur(element);}
                 ); 
+				
 	}		
 
 	private List<Employe> modifierEmploye(final Ligue ligue)
