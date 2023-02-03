@@ -11,6 +11,7 @@ import commandLineMenus.Option;
 import personnel.*;
 import java.time.LocalDate;
 import java.time.format.*;
+import java.time.format.DateTimeParseException;
 
 public class LigueConsole 
 {
@@ -73,7 +74,7 @@ public class LigueConsole
 		Menu menu = new Menu("Editer " + ligue.getNom());
 		menu.add(afficher(ligue));
 		menu.add(gererEmployes(ligue));
-		menu.add(changerAdministrateur(ligue));
+		//menu.add(changerAdministrateur(ligue));
 		menu.add(changerNom(ligue));
 		menu.add(supprimer(ligue));
 		menu.addBack("q");
@@ -99,16 +100,23 @@ public class LigueConsole
 		return new Option("ajouter un employé", "a",
 				() -> 
 				{
+					LocalDate Arrivee = null, Depart = null;
 					ligue.addEmploye(getString("nom : "), 
 						getString("prenom : "),
 						getString("mail : "), 
 						getString("password : "),
-						getDate("Date d'arrivée JJ-MM-YYYY : "),
-                        getDate("Date de départ JJ-MM-YYYY : "));
+						Arrivee = parseDate("Date d'arrivée YYYY-MM-JJ : "),
+                        Depart = parseDate("Date de départ YYYY-MM-JJ : "));
 				}
 		);
 	}
 	
+
+	private LocalDate parseDate(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	private Menu gererEmployes(Ligue ligue)
 	{
 		Menu menu = new Menu("Gérer les employés de " + ligue.getNom(), "e");
@@ -130,10 +138,7 @@ public class LigueConsole
 	
 	private List<Employe> changerAdministrateur(final Ligue ligue)
 	{
-		return new List<>("Changer l'administrateur de ligue", "o", 
-                () -> new ArrayList<>(ligue.getEmployes()),
-                (index, element) -> {ligue.setAdministrateur(element);}
-                );
+		return null;
 	}		
 
 	private List<Employe> modifierEmploye(final Ligue ligue)

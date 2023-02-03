@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -15,9 +16,10 @@ public class Employe implements Serializable, Comparable<Employe>
 	private static final long serialVersionUID = 4795721718037994734L;
 	private String nom, prenom, password, mail;
 	private Ligue ligue;
+	private LocalDate dateArrivee, dateDepart;
 	private GestionPersonnel gestionPersonnel;
 	
-	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, LocalDate dateArrivee, LocalDate dateDepart)
 	{
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
@@ -25,6 +27,8 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		this.dateArrivee = dateArrivee;
+		this.dateDepart = dateDepart;
 	}
 	
 	/**
@@ -143,6 +147,48 @@ public class Employe implements Serializable, Comparable<Employe>
 	{
 		return ligue;
 	}
+	
+	/** 
+	 * Retourne la date d'arrivée de l'employé.
+	 * @return la date d'arrivée de l'employé.
+	 * */
+	
+	public LocalDate getdateArrivee()
+	{
+		
+		return dateArrivee;
+	}
+	
+	/** 
+	 * Change la date d'arrivée de l'employé.
+	 * @param la nouvelle date d'arrivée de l'employé.
+	 * */
+	
+	public void setdateArrivee(LocalDate dateArrivee) 
+	{
+		this.dateArrivee = dateArrivee;
+	}
+	
+	/** 
+	 * Retourne la date de départ de l'employé.
+	 * @return la date de départ de l'employé.
+	 * */
+	
+	public LocalDate getdateDepart()
+	{
+		return dateDepart;
+	}
+	
+	/** 
+	 * Change la date de départ de l'employé.
+	 * @param la nouvelle date de départ de l'employé.
+	 * */
+	
+	public void setdateDepart(LocalDate dateDepart) 
+	{
+		this.dateDepart = dateDepart;
+	}
+	
 
 	/**
 	 * Supprime l'employé. Si celui-ci est un administrateur, le root
@@ -174,7 +220,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	@Override
 	public String toString()
 	{
-		String res = nom + " " + prenom + " " + mail + " (";
+		String res = nom + " " + prenom + " " + mail + " (" + dateArrivee + "/" + dateDepart + ") " + "(";
 		if (estRoot())
 			res += "super-utilisateur";
 		else
