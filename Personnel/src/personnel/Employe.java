@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
+ * 
  * être administrateurs des employés de leur ligue.
  * Un seul employé, rattaché à aucune ligue, est le root.
  * Il est impossible d'instancier directement un employé, 
