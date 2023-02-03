@@ -114,10 +114,17 @@ public class LigueConsole
 	}
 	
 
-	private LocalDate parseDate(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+
+	private LocalDate parseDate(String string){
+        while(true)
+            try {
+            return LocalDate.parse(getString(string));
+             }
+        catch(DateTimeParseException e) {
+             System.out.println("Erreur!");
+             }
+    }
 
 	private Menu gererEmployes(Ligue ligue)
 	{
