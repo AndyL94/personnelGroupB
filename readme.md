@@ -1,4 +1,4 @@
-# PPE - Gestion du personnel des ligues <br> - BTS SIO SLAM2 -
+# PPE - Gestion du personnel des ligues <br>           - BTS SIO SLAM2 -
 Groupe B:
 
 ([Andy LOUIS] (https://github.com/LowkeyAlways)) 
