@@ -19,6 +19,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	private Ligue ligue;
 	private LocalDate dateArrivee, dateDepart;
 	private GestionPersonnel gestionPersonnel;
+	private int id;
 	
 	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, LocalDate dateArrivee, LocalDate dateDepart)
 	{
@@ -138,6 +139,11 @@ public class Employe implements Serializable, Comparable<Employe>
 	{
 		this.password= password;
 	}
+	
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/**
 	 * Retourne la ligue à laquelle l'employé est affecté.
@@ -167,7 +173,14 @@ public class Employe implements Serializable, Comparable<Employe>
 	
 	public void setdateArrivee(LocalDate dateArrivee) 
 	{
-		this.dateArrivee = dateArrivee;
+		if(dateArrivee != null && dateDepart != null && dateArrivee.isAfter(dateDepart)) 
+		{
+			System.out.print("La date d'arrivée doit étre inférieur à la date de départ");
+			}
+		else 
+		{
+			this.dateArrivee = dateArrivee;
+		}
 	}
 	
 	/** 
@@ -190,6 +203,13 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.dateDepart = dateDepart;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
 
 	/**
 	 * Supprime l'employé. Si celui-ci est un administrateur, le root
@@ -228,4 +248,6 @@ public class Employe implements Serializable, Comparable<Employe>
 			res += ligue.toString();
 		return res + ")";
 	}
+
+	
 }

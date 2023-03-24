@@ -107,8 +107,22 @@ public class LigueConsole
 						mail = getString("mail : ");
 						password = getString("password : ");
 						Arrivee = parseDate("Date d'arrivée YYYY-MM-DD : ");
-                        Depart = parseDate("Date de départ YYYY-MM-DD : ");
-                        ligue.addEmploye(nom, prenom, mail, password, Arrivee, Depart);
+                        
+                        while (true)
+                        {
+                        	Depart = parseDate("Date de départ YYYY-MM-DD : ");
+                        	if(Depart.isBefore(Arrivee))
+                    		{
+                        		System.out.print("La date d'arrivée doit étre inférieur à la date de départ");
+                        		
+                        		
+                    			}
+                        	break;
+                        	
+                    		
+                        }
+                        ligue.addEmploye(nom, prenom, mail, password, Arrivee, Depart, 0);
+                       
 				}
 		);
 	}
