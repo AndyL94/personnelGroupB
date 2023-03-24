@@ -21,6 +21,7 @@ public class JDBC implements Passerelle
 		{
 			Class.forName(Credentials.getDriverClassName());
 			connection = DriverManager.getConnection(Credentials.getUrl(), Credentials.getUser(), Credentials.getPassword());
+			
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -43,7 +44,7 @@ public class JDBC implements Passerelle
 			ResultSet ligues = instruction.executeQuery(requete);
 			
 			while (ligues.next()) {
-				gestionPersonnel.addLigue(ligues.getInt(1), ligues.getString(2));
+				gestionPersonnel.addLigue(ligues.getInt("id_ligue"), ligues.getString("nom_ligue"));
 			
 				PreparedStatement req = connection.prepareStatement("SELECT * FROM employe WHERE id_ligue = ?");
 				req.setInt(1, ligues.getInt("id_ligue"));
@@ -54,14 +55,14 @@ public class JDBC implements Passerelle
 					
 					int id = employe.getInt("id_employee");
 					String nom = employe.getString("nom");
-					String prenom = employe.getString("prenom");
+					String prenom = employe.getString("prénom");
 					String mail = employe.getString("mail");
 					String password = employe.getString("password");
-					LocalDate date_arrivee = employe.getDate("date_arrivee") != null
-							? LocalDate.parse(employe.getString("date_arrivee"))
+					LocalDate date_arrivee = employe.getDate("datearrivée") != null
+							? LocalDate.parse(employe.getString("datearrivée"))
 							: null;
-					LocalDate date_depart = employe.getDate("date_depart") != null
-							? LocalDate.parse(employe.getString("date_depart"))
+					LocalDate date_depart = employe.getDate("datedépart") != null
+							? LocalDate.parse(employe.getString("datedépart"))
 							: null;
 					
 					Employe employee = ligue.addEmploye(nom, prenom, mail, password, date_arrivee, date_depart, id);

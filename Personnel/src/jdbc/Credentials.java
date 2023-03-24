@@ -7,8 +7,8 @@ public class Credentials
 	private static String host = "localhost";
 	private static String port = "3306";
 	private static String database = "ligues";
-	private static String user = "root";
-	private static String password = "root";
+	private static String user = "andy";
+	private static String password = "";
 	
 	static String getUrl() 
 	{
