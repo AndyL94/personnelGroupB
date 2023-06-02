@@ -56,11 +56,13 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	/**
 	 * Change le nom.
 	 * @param nom le nouveau nom de la ligue.
+	 * @throws SauvegardeImpossible 
 	 */
 
-	public void setNom(String nom)
+	public void setNom(String nom) throws SauvegardeImpossible
 	{
 		this.nom = nom;
+		gestionPersonnel.update(this); 
 	}
 
 	/**
@@ -108,22 +110,21 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	 * @param password le password de l'employé.
 	 * @param Depart 
 	 * @param Arrivee 
-	 * @param id2 
+	 * @param id
 	 * @return l'employé créé. 
 	 */
 
-	public Employe addEmploye(String nom, String prenom, String mail, String password, LocalDate Arrivee, LocalDate Depart, int id2)
+	public Employe addEmploye(String nom, String prenom, String mail, String password, LocalDate Arrivee, LocalDate Depart)
 	{
 		Employe employe = new Employe(this.gestionPersonnel, this, nom, prenom, mail, password, Arrivee, Depart);
 		employes.add(employe);
 		return employe;
 	}
 	
-	public Employe addEmploye2(String nom, String prenom, String mail, String password, LocalDate date_arrivee,LocalDate date_depart, int id)
+	public Employe addEmploye(String nom, String prenom, String mail, String password, LocalDate dateArrivee,LocalDate dateDepart, int id)
 	{
-		Employe employe = new Employe(this.gestionPersonnel, this, nom, prenom, mail, password, date_arrivee, date_depart);
+		Employe employe = new Employe(this.gestionPersonnel, this, nom, prenom, mail, password, dateArrivee, dateDepart, id);
 		employes.add(employe);
-		employe.setId(id);
 		return employe;
 	}
 	
@@ -159,11 +160,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		return nom;
 	}
 
-	public void addEmploye1(String nom2, String prenom, String mail, String password, LocalDate arrivee,
-			LocalDate depart) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	}
 

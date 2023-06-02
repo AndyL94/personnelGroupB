@@ -12,7 +12,7 @@ public class Credentials
 	
 	static String getUrl() 
 	{
-		return "jdbc:" + driver + "://" + host + ":" + port + "/" + database ;
+		return "jdbc:" + driver + "://" + host + ":" + port + "/" + database + "?useSSL=false&serverTimezone=Europe/Rome" ;
 	}
 	
 	static String getDriverClassName()
@@ -25,7 +25,7 @@ public class Credentials
 		return user;
 	}
 
-	static String getPassword() 
+	static String getPassword()
 	{
 		return password;
 	}

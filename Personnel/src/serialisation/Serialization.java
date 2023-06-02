@@ -65,7 +65,7 @@ public class Serialization implements personnel.Passerelle
 	}
 
 	@Override
-	public void update(Employe employe, String column) throws SauvegardeImpossible {
+	public void update(Employe employe) throws SauvegardeImpossible {
 		// TODO Auto-generated method stub
 		
 	}
